@@ -6,7 +6,7 @@ Este proyecto contiene el diseño e implementación de una base de datos relacio
 
 La base de datos está diseñada para gestionar información completa sobre muertes accidentales, incluyendo datos demográficos de las víctimas, información geográfica (departamentos y municipios), diagnósticos topográficos, mecanismos causales y detalles específicos de cada evento.
 
-## 🎯 Objetivo
+## 🎯 Objetivo 
 
 El objetivo principal de este proyecto es crear un sistema de base de datos normalizado y optimizado que permita:
 
