@@ -130,62 +130,7 @@ Este archivo. Contiene toda la documentación del proyecto, incluyendo descripci
 
 **Propósito**: Proporcionar documentación completa y accesible del proyecto.
 
-## 🚀 Instalación y Configuración
 
-### Requisitos Previos
-
-- MySQL 5.7 o superior (o MariaDB equivalente)
-- Acceso a un servidor MySQL o MariaDB
-- Cliente MySQL (MySQL Workbench, phpMyAdmin, o línea de comandos)
-
-### Pasos de Instalación
-
-1. Abre tu cliente MySQL (MySQL Workbench, phpMyAdmin, o línea de comandos)
-
-2. Ejecuta el archivo `codigo_mysql` que contiene todos los scripts de creación:
-   ```bash
-   mysql -u usuario -p < codigo_mysql
-   ```
-   
-   O copia y pega el contenido del archivo en tu cliente MySQL.
-
-3. Verifica que la base de datos se haya creado correctamente:
-   ```sql
-   SHOW DATABASES;
-   USE sistema_mortalidad;
-   SHOW TABLES;
-   ```
-
-## 🔒 Integridad Referencial
-
-Todas las claves foráneas están configuradas con:
-
-- **ON UPDATE CASCADE**: Actualizaciones se propagan automáticamente a las tablas relacionadas
-- **ON DELETE RESTRICT**: Previene la eliminación de registros que tienen referencias en otras tablas, garantizando la integridad de los datos
-
-## 🛠️ Uso
-
-### Consultas de Ejemplo
-
-```sql
--- Ver todas las muertes accidentales con información completa de víctima
-SELECT 
-    ma.ID,
-    pv.Sexo,
-    pv.Grupo_de_edad_quinquenal,
-    m.Municipio,
-    d.Departamento,
-    dt.Diagnostico_Topografico,
-    dt.Mecanismo_Causal,
-    ma.Anio_del_hecho,
-    ma.Mes_del_hecho
-FROM MUERTE_ACCIDENTAL ma
-JOIN PERSONA_VICTIMA pv ON ma.ID_Victima = pv.ID_Victima
-JOIN MUNICIPIO m ON ma.Codigo_DANE_Municipio = m.Codigo_DANE_Municipio
-JOIN DEPARTAMENTO d ON m.Codigo_DANE_Departamento = d.Codigo_DANE_Departamento
-JOIN CAUSA_MUERTE cm ON ma.ID_Causa = cm.ID_Causa
-JOIN DIAGNOSTICO_TOPOGRAFICO dt ON cm.ID_Diagnostico_Topografico = dt.ID_Diagnostico_Topografico;
-```
 
 ## 👤 Autor
 valentina mancilla 
